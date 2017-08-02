@@ -56,7 +56,7 @@ body,
 	}	
 	/*Avoid double #secondary sidebars floating with each other*/
 	.has-sidebar #secondary {
-	    clear: left;
+	    /*clear: left;*/
 	}
 	
 	
