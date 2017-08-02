@@ -27,6 +27,11 @@ $parent_style = 'parent-style';
 add_action( 'wp_enqueue_scripts', 'simian_uprising_twenty_seventeen_enqueue_child_styles' );
 
 /**
+ * Enable shortcodes in widgets
+ */
+add_filter('widget_text', 'do_shortcode');
+
+/**
  * TODO: Find a way to automatically insert widgets from sidebar-summary into the sidebar sidebar
  * when !is_home/!is_front_page so that we don't have weird style stuff happening
  */
