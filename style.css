@@ -1,0 +1,62 @@
+/*
+Theme Name:   Twenty Seventeen Jer
+Description:  Child theme for SU
+Author:       jerclarke
+Author URL:   http://jerclarke.org
+Template:     twentyseventeen
+Version:      0.1
+License:      GNU General Public License v2 or later
+License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:  twentyseventeen-jer
+*/
+
+/* Write here your own personal stylesheet */
+
+/*Grey body color*/
+body,
+.site-content-contain {
+	background-color: #f7f7f7;
+}
+/*Disable white shadown on images*/
+.entry-content a img, .widget a img {
+    -webkit-box-shadow:none;
+    box-shadow: none;
+}
+
+.home .page-header {
+	display: none;
+}
+
+/*Change height of header image so the top part shows not the middle when it's cut off'*/
+.has-header-image .custom-header-media img, .has-header-video .custom-header-media video, .has-header-video .custom-header-media iframe, .has-header-image:not(.twentyseventeen-front-page):not(.home) .custom-header-media img {
+	height: auto;
+}
+
+/*Smaller text in header widgets*/
+.header-widgets-wrap .widget {
+    font-size: 0.875rem;
+}
+
+/*Header widgets, custom style for large screens*/
+@media screen and (min-width: 48em) {
+	/*Grid of three*/
+	.header-widgets-wrap .widget {
+		width: 33%;
+		float:left;
+		padding-right: 1.5rem;
+	}
+	.header-widgets-wrap .widget:last-child {
+	    padding-right: 0;
+	}
+	/*bigger widget headings*/
+	h2.widget-title {
+	    font-size: 1rem;
+	    margin-bottom: 2em;
+	}	
+	/*Avoid double #secondary sidebars floating with each other*/
+	.has-sidebar #secondary {
+	    clear: left;
+	}
+	
+	
+}
