@@ -29,7 +29,7 @@ add_action( 'wp_enqueue_scripts', 'simian_uprising_twenty_seventeen_enqueue_chil
 /**
  * Enable shortcodes in widgets
  */
-add_filter('widget_text', 'do_shortcode');
+add_filter( 'widget_text', 'do_shortcode' );
 
 /**
  * TODO: Find a way to automatically insert widgets from sidebar-summary into the sidebar sidebar
@@ -84,3 +84,22 @@ $('.hideable').on('click', function() {
 	echo $output;
 }
 //add_action('wp_head', 'jer_twentyseventeen_wp_head');
+
+
+/**
+ * Check if $function is in the call stack in debug_backtrace()
+ * 
+ * Needed to check if a given filter (e.g. 'wp_trim_excerpt') is a function ancenstor
+ * to disable functionality (e.g. stop a wp_content filter from affecting empty excerpts). 
+ * 
+ * @param type $function
+ * @return boolean
+ */
+function jer_backtrace_contains_function($function) {
+	$backtrace = debug_backtrace();
+	
+	foreach ($backtrace as $key => $function_details ):
+		if ($function == $function_details['function'])
+			return true;
+	endforeach;	
+}
