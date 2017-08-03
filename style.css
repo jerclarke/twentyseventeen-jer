@@ -13,40 +13,124 @@ GitHub Plugin URI: https://github.com/jeremyclarke/twentyseventeen-jer
 
 /* Write here your own personal stylesheet */
 
-/*Nowrap for logo chunks*/
+/*HEADER IMAGE/TEXT MANIPULATION*/
+/*Logo Chunks (relies on site-branding.php override):
+Nowrap for logo chunks*/
 .logo-chunk.simian-uprising,
 .logo-chunk.jer-clarke {
 	white-space: nowrap;
 }
+/*Logo Chunks: Make second half block*/
 .logo-chunk.by-jer-clarke {
 	display:block;
 }
+/*Header Image:
+Set padding on title so monkey photo is balanced across breakpoints*/
+.site-branding {
+    padding-top: 10em;
+}
+@media screen and (min-width: 30em) {
+	.site-branding {
+	    padding-top: 12em;
+	}
+}
+@media screen and (min-width: 48em) {
+	.site-branding {
+		padding-top: 16em;
+	}
+}
+@media screen and (min-width: 60em) {
+	.site-branding {
+		padding-top: 20em;
+	}
+}
+/*Header Image:
+Change height of header image so the top part shows not the middle when it's cut off'*/
+.has-header-image .custom-header-media img, .has-header-video .custom-header-media video, .has-header-video .custom-header-media iframe, .has-header-image:not(.twentyseventeen-front-page):not(.home) .custom-header-media img {
+	height: auto;
+}
+/*get padding below header+menu under control*/
+.site-content {
+    padding: 2em 0 0;
+}
+/*Hide "Posts" heading on homepage"*/
+.home .page-header {
+	display: none;
+}
+
+/*GENERAL STYLES*/
 /*Grey body color*/
 body,
 .site-content-contain {
 	background-color: #f7f7f7;
 }
-/*Disable white shadown on images*/
+/*Hidden underline: Make #f7f7f7
+- List copied from main style.css*/
+.entry-title a,
+.entry-meta a,
+.page-links a,
+.page-links a .page-number,
+.entry-footer a,
+.entry-footer .cat-links a,
+.entry-footer .tags-links a,
+.edit-link a,
+.post-navigation a,
+.logged-in-as a,
+.comment-navigation a,
+.comment-metadata a,
+.comment-metadata a.comment-edit-link,
+.comment-reply-link,
+a .nav-title,
+.pagination a,
+.comments-pagination a,
+.site-info a,
+.widget .widget-title a,
+.widget ul li a,
+.site-footer .widget-area ul li a,
+.site-footer .widget-area ul li a {
+	-webkit-box-shadow: inset 0 -1px 0 #f7f7f7;
+	box-shadow: inset 0 -1px 0 #f7f7f7;
+	text-decoration: none;
+	-webkit-transition: color 80ms ease-in, -webkit-box-shadow 130ms ease-in-out;
+	transition: color 80ms ease-in, -webkit-box-shadow 130ms ease-in-out;
+	transition: color 80ms ease-in, box-shadow 130ms ease-in-out;
+	transition: color 80ms ease-in, box-shadow 130ms ease-in-out, -webkit-box-shadow 130ms ease-in-out;
+}
+/*Headings/Meta Weights: 
+Rebalance heading/meta weights so headings are thick, meta is thin*/
+.entry-header h1, 
+.entry-title,
+.home.blog .entry-title {
+	font-weight: 600;	
+}
+.entry-meta {
+	font-weight: 300;
+}
+/*Blockquotes: Fix giant spacious blockquotes*/
+blockquote {
+	font-size: 1rem;
+	font-weight: normal;
+	line-height: 1.5;
+	border-left: 2px solid #bbb;
+	padding-left: 1em;
+	margin-bottom: 1.5em;
+	background: #
+}
+blockquote *:last-child {
+	margin-bottom: 0;
+}
+/*Disable white shadow on images*/
 .entry-content a img, .widget a img {
     -webkit-box-shadow:none;
     box-shadow: none;
 }
 
-.home .page-header {
-	display: none;
-}
-
-/*Change height of header image so the top part shows not the middle when it's cut off'*/
-.has-header-image .custom-header-media img, .has-header-video .custom-header-media video, .has-header-video .custom-header-media iframe, .has-header-image:not(.twentyseventeen-front-page):not(.home) .custom-header-media img {
-	height: auto;
-}
-
-/*Smaller text in header widgets*/
+/*CUSTOM HEADER WIDGET AREA*/
+/*Header Widgets: Smaller text*/
 .header-widgets-wrap .widget {
     font-size: 0.875rem;
 }
-
-/*Header widgets, custom style for large screens*/
+/*Header widgets: custom style for large screens*/
 @media screen and (min-width: 48em) {
 	/*Grid of three*/
 	.header-widgets-wrap .widget {
@@ -66,32 +150,37 @@ body,
 	.has-sidebar #secondary {
 	    /*clear: left;*/
 	}
-	
-	
 }
 
-/*get padding below header+menu under control*/
-.site-content {
-    padding: 2em 0 0;
+/*DEFAULT WIDGETS*/
+/*Category Widget: 
+inline tags style*/
+.widget.widget_categories ul li {
+	border-width: 0;
+	display: inline-block;
+	background: #dedede;
+	padding: .2em .4em;
+	margin: 0 .2em .4em 0;
+	
 }
-
-/*Set padding on title so monkey photo is 
-balanced across breakpoints*/
-.site-branding {
-    padding-top: 10em;
+.widget.widget_categories ul li a {
+    -webkit-box-shadow: inset 0 -1px 0 #dedede;
+    box-shadow: inset 0 -1px 0 #dedede;
 }
-@media screen and (min-width: 30em) {
-	.site-branding {
-	    padding-top: 12em;
-	}
+/*Recent Entries Widget:
+Big thick Headlines*/
+.widget_recent_entries li {
+	font-weight: 600;
+	text-transform: uppercase;
+	font-size: 1.2em;
 }
-@media screen and (min-width: 48em) {
-	.site-branding {
-		padding-top: 16em;
-	}
+/*Recent Entries Widget:
+no border on top/bottom*/
+.widget_recent_entries ul li:first-child {
+border-width: 0;
+	padding-top: 0;
 }
-@media screen and (min-width: 60em) {
-	.site-branding {
-		padding-top: 20em;
-	}
+.widget_recent_entries ul li:last-child {
+border-width: 0;
+	padding-bottom: 0;
 }
