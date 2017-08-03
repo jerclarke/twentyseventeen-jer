@@ -13,6 +13,14 @@ GitHub Plugin URI: https://github.com/jeremyclarke/twentyseventeen-jer
 
 /* Write here your own personal stylesheet */
 
+/*Nowrap for logo chunks*/
+.logo-chunk.simian-uprising,
+.logo-chunk.jer-clarke {
+	white-space: nowrap;
+}
+.logo-chunk.by-jer-clarke {
+	display:block;
+}
 /*Grey body color*/
 body,
 .site-content-contain {
@@ -60,4 +68,30 @@ body,
 	}
 	
 	
+}
+
+/*get padding below header+menu under control*/
+.site-content {
+    padding: 2em 0 0;
+}
+
+/*Set padding on title so monkey photo is 
+balanced across breakpoints*/
+.site-branding {
+    padding-top: 10em;
+}
+@media screen and (min-width: 30em) {
+	.site-branding {
+	    padding-top: 12em;
+	}
+}
+@media screen and (min-width: 48em) {
+	.site-branding {
+		padding-top: 16em;
+	}
+}
+@media screen and (min-width: 60em) {
+	.site-branding {
+		padding-top: 20em;
+	}
 }
